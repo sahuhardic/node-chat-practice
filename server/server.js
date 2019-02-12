@@ -15,6 +15,11 @@ io.on('connection',(socket)=>{
 
     console.log('new connection');
 
+    socket.emit('newMessage',{number:123,status:100});
+
+    socket.on('createMessage',(message)=>{
+        console.log('created message ',message );
+    });
     socket.on('disconnect',()=>{
 
         console.log('user is disconnected')
