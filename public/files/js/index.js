@@ -8,4 +8,3 @@ socket.on('disconnect',()=>{
 socket.on('newMessage',(message)=>{
     console.log(message);
 })
-socket.emit('createMessage',{from:'client',text:"That works for me"});
