@@ -8,7 +8,7 @@
 <html>
 	<head>
 		<title>Chat</title>
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+		<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> -->
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
@@ -18,6 +18,9 @@
 	<!--Coded With Love By Mutiullah Samim-->
 	<body>
 		<div class="container-fluid h-100">
+				
+				<h2 id="name" ></h2>
+
 			<div class="row justify-content-center h-100">
 				<div class="col-md-4 col-xl-3 chat"><div class="card mb-sm-3 mb-md-0 contacts_card">
 					<div class="card-header">
@@ -30,19 +33,8 @@
 					</div>
 					<div class="card-body contacts_body">
 						<ui class="contacts" id="users_list" >
-						<li class="active">
-							<div class="d-flex bd-highlight">
-								<div class="img_cont">
-									<img src="https://devilsworkshop.org/files/2013/01/enlarged-facebook-profile-picture.jpg" class="rounded-circle user_img">
-									<span class="online_icon"></span>
-								</div>
-								<div class="user_info">
-									<span>Maryam Naz</span>
-									<p>Maryam is online</p>
-								</div>
-							</div>
-						</li>
-						</ui>
+					
+						</ui>  
 					</div>
 					<div class="card-footer"></div>
 				</div></div>
@@ -55,14 +47,14 @@
 									<span class="online_icon"></span>
 								</div>
 								<div class="user_info">
-									<span>Chat with none</span>
+									<span>Chat with <span id="chat_with" ></span> </span>
 									<p>1767 Messages</p>
 								</div>
 								
 							</div>
 						
 						</div>
-						<div class="card-body msg_card_body">
+						<div class="card-body msg_card_body" id="chat_box" >
 							<div class="d-flex justify-content-start mb-4">
 								<div class="img_cont_msg">
 									<img src="https://devilsworkshop.org/files/2013/01/enlarged-facebook-profile-picture.jpg" class="rounded-circle user_img_msg">
@@ -96,8 +88,8 @@
 								<div class="input-group-append">
 									<span class="input-group-text attach_btn"><i class="fas fa-paperclip"></i></span>
 								</div>
-								<textarea name="" class="form-control type_msg" placeholder="Type your message..."></textarea>
-								<div class="input-group-append">
+								<textarea name="" class="form-control type_msg" id="text_area" placeholder="Type your message..."></textarea>
+								<div class="input-group-append" onclick="sendMessage()" >
 									<span class="input-group-text send_btn"><i class="fas fa-location-arrow"></i></span>
 								</div>
 							</div>

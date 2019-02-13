@@ -10,17 +10,21 @@ let io = socketIO(server);
 
 const publicPAth =path.join(__dirname,'/../public');
 const port =  process.env.PORT || 3000;
+const myclients = [];
 app.use(express.static(publicPAth));
 
 io.on('connection',(socket)=>{
    
-    socket.on('newConnection',(user)=>{
-
+    socket.on('newConnection',(user,cb)=>{
+    //console.log(io.sockets);
         socket.join(user.email); 
         socket.broadcast.emit('newUserJoined',{email:user.email});
+        socket.emit('givingUsers',myclients);
+        myclients.push(user.email);
+        
     });
 
-    socket.on('messageSend',(user)=>{
+    socket.on('sendMessage',(user)=>{
 
         io.sockets.in(user.to).emit('recieveMessage', user);
     });
